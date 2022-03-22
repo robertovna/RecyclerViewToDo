@@ -14,7 +14,7 @@
         android:padding="8dp">
 
         <CheckBox
-            android:id="@+id/checkToDo"
+            android:id="@+id/checkToDoText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Some text on Todo"

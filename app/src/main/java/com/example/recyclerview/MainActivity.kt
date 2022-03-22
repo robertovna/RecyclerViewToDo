@@ -3,7 +3,7 @@ package com.example.recyclerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.recyclerview.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.databinding.ActivityMainBinding
 import com.example.recyclerview.RecycleViewModel
 
@@ -16,8 +16,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = RecycleViewModel()
 
-        mainBinding.viewModel = viewModel
+        mainBinding.mainRecycler.run {
+            layoutManager = LinearLayoutManager(context)
+            this.adapter = Adapter()
+        }
     }
+
+
+
+
 }
