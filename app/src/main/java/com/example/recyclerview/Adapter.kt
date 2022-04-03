@@ -10,9 +10,8 @@ import com.example.recyclerview.R
 
 
 
-class Adapter : RecyclerView.Adapter<Adapter.EasyViewHolder>() {
+class Adapter(private var items: MutableList<String>) : RecyclerView.Adapter<Adapter.EasyViewHolder>() {
 
-    private val items: MutableList<String> = IntArray(25) { it }.map { "Item $it" }.toMutableList()
     private lateinit var recyclerView: RecyclerView
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -34,6 +33,11 @@ class Adapter : RecyclerView.Adapter<Adapter.EasyViewHolder>() {
     }
 
     override fun getItemCount(): Int = items.size
+
+    fun addTask(task: String) {
+        items.add(task)
+        notifyDataSetChanged()
+    }
 
     class EasyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

@@ -10,6 +10,7 @@ import com.example.recyclerview.RecycleViewModel
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding : ActivityMainBinding
     private lateinit var viewModel: RecycleViewModel
+    private lateinit var taskAdapter: Adapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,10 +18,17 @@ class MainActivity : AppCompatActivity() {
 
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        var tasks = IntArray(25) { it }.map { "Item $it" }.toMutableList()
+        taskAdapter = Adapter(tasks)
+        viewModel = RecycleViewModel(taskAdapter)
+        mainBinding.viewModel = viewModel
         mainBinding.mainRecycler.run {
             layoutManager = LinearLayoutManager(context)
-            this.adapter = Adapter()
+            this.adapter = taskAdapter
         }
+
+
+
     }
 
 
