@@ -9,7 +9,14 @@
         android:id="@+id/mainFragment"
         android:name="com.example.recyclerview.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_moreInfoFragment"
+            app:destination="@id/moreInfoFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
     <fragment
         android:id="@+id/moreInfoFragment"
         android:name="com.example.recyclerview.MoreInfoFragment"
