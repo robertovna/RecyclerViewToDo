@@ -21,10 +21,18 @@
         android:id="@+id/moreInfoFragment"
         android:name="com.example.recyclerview.MoreInfoFragment"
         android:label="fragment_more_info"
-        tools:layout="@layout/fragment_more_info" />
+        tools:layout="@layout/fragment_more_info" >
+        <action
+            android:id="@+id/action_moreInfoFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addTaskFragment"
         android:name="com.example.recyclerview.AddTaskFragment"
         android:label="fragment_add_task"
-        tools:layout="@layout/fragment_add_task" />
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addTaskFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

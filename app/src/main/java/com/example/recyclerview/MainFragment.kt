@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.annotation.Nullable
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.databinding.ActivityMainBinding
 import com.example.recyclerview.databinding.FragmentMainBinding
@@ -36,7 +40,7 @@ class MainFragment : Fragment() {
 
         var tasks = IntArray(25) { it }.map { "Item $it" }.toMutableList()
         taskAdapter = Adapter(tasks)
-        viewModel = RecycleViewModel(taskAdapter)
+        viewModel = RecycleViewModel(findNavController())
         mainBinding.viewModel = viewModel
         mainBinding.mainRecycler.run {
             layoutManager = LinearLayoutManager(context)
@@ -44,5 +48,4 @@ class MainFragment : Fragment() {
         }
         return mainBinding.root
     }
-
 }
