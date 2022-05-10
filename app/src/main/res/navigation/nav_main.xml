@@ -20,6 +20,10 @@
             android:name="param1"
             app:argType="string"
             android:defaultValue="Some text" />
+        <argument
+            android:name="editparam"
+            app:argType="string"
+            android:defaultValue="New Task" />
     </fragment>
     <fragment
         android:id="@+id/moreInfoFragment"

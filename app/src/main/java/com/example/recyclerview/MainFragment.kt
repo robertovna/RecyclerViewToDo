@@ -34,6 +34,12 @@ class MainFragment : Fragment() {
         )
 
         var tasks = IntArray(25) { it }.map { "Item $it" }.toMutableList()
+        var text = ""
+        arguments?.let {
+            text = it.getString("editparam")!!
+        }
+        if (text != "")
+            tasks.add(text)
         taskAdapter = Adapter(tasks, findNavController())
         viewModel = RecycleViewModel(findNavController())
         mainBinding.viewModel = viewModel
@@ -43,4 +49,5 @@ class MainFragment : Fragment() {
         }
         return mainBinding.root
     }
+
 }
